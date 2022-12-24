@@ -1,12 +1,8 @@
 const db = require("../models/toturial");
-const {Tutorial} = require('../models/toturial')
-// const Tutorial = db.tutorials;
-// const Op = db.Sequelize.Op;
+const Tutorial = db.tutorials;
 
-console.log("tutorial hai ahi::",Tutorial)
 // Create and Save a new Tutorial
 exports.create = (req, res) => {
-    console.log("reqbody is here::",req.body)
     // Validate request
     if (!req.body.title) {
       res.status(400).send({
@@ -21,7 +17,8 @@ exports.create = (req, res) => {
       description: req.body.description,
       published: req.body.published ? req.body.published : false
     };
-    console.log("Yes data is here", tutorial)
+
+    console.log("We are successfully accessing till this line the below code is not working", tutorial)
   
     // Save Tutorial in the database
     Tutorial.create(tutorial)
