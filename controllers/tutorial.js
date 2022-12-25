@@ -1,8 +1,9 @@
-const db = require("../models/toturial");
+const db = require("../models");
 const Tutorial = db.tutorials;
 
 // Create and Save a new Tutorial
 exports.create = (req, res) => {
+  console.log("req BODY- ",req.body);
     // Validate request
     if (!req.body.title) {
       res.status(400).send({
@@ -17,8 +18,6 @@ exports.create = (req, res) => {
       description: req.body.description,
       published: req.body.published ? req.body.published : false
     };
-
-    console.log("We are successfully accessing till this line the below code is not working", tutorial)
   
     // Save Tutorial in the database
     Tutorial.create(tutorial)
